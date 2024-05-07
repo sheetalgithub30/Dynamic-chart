@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Time Chart</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background:linear-gradient(rgb(145, 234, 145),white);
+        }
+        canvas{
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h2>Bitcoin Price history</h2>
+        <p>X-axis shows the timestamp(period of time)</p>
+        <p>Y-axis shows the price during that timestamp</p>
+        <canvas id="myChart" style="width:100%;max-width:700px">
+    
+        </canvas>
+    </div>
+    <script
+src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+<script src="script.js"></script>
+</body>
+</html>
