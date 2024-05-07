@@ -1,32 +1,39 @@
 const out = [];
 let chart;
+let text="line";
 window.addEventListener("load",async()=>{
     const response = await fetch("https://api.coinranking.com/v2/coin/Qwsogvtv82FCd/history");
     const result = await response.json();
     let data = (result.data.history);
-    console.log(data);
+    // console.log(data);
    data.forEach(element => {
       out.push(element.price);
    });
+
+   chartShow();
 })
 
 
-const ctx = document.getElementById('myChart').getContext('2d');
 
+
+function chartShow(){
+    const ctx = document.getElementById('myChart').getContext('2d');
 
 const initialData = {
     labels: [],
     datasets: [{
         label: 'Bitcoin Price',
          data: [],
+         backgroundColor :'#800080',
         borderColor: '#800080',
         borderWidth: 2,
         fill: false,
     }],
 };
 
+
 const chartConfig = {
-    type: 'line',
+    type: text,
     data: initialData,
     options: {
         scales: {
@@ -66,7 +73,19 @@ function addData() {
     }
 }
 
-setInterval(addData, 1500);
+setInterval(addData, 1000);
+}
+
+const btn = document.querySelector(".change");
+
+btn.addEventListener("click",()=>{
+  const selectedOption = document.querySelector("select").value;
+  console.log(selectedOption);
+
+ text = selectedOption;
+chartShow();
+}
+);
 
 
 
@@ -78,11 +97,13 @@ anime({
   });
   
   anime({
-    targets: ctx.data.datasets.data,
+    targets: ctx.data.datasets[0].data,
     scale: [0, 2],
-    duration: 4000,
+    duration: 1000,
     easing: 'easeOutElastic',
     update: function() {
       ctx.update();
     }
   });
+
+ 

@@ -9,6 +9,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: cursive;
         }
         #container{
             display: flex;
@@ -18,8 +19,20 @@
             height: 100vh;
             background:linear-gradient(rgb(145, 234, 145),white);
         }
+        #chartType{
+            margin: 1rem;
+        }
+        button{
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            background-color: aqua;
+        }
+        select{
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+        }
         canvas{
-            margin-top: 4rem;
+            margin: 4rem 0 ;
         }
     </style>
 </head>
@@ -28,6 +41,16 @@
         <h2>Bitcoin Price history</h2>
         <p>X-axis shows the timestamp(period of time)</p>
         <p>Y-axis shows the price during that timestamp</p>
+
+
+        <div id="chartType">
+            <select>
+             <option value="line">Line</option>
+             <option value="bar">Bar</option>
+            </select>
+             <button class="change">change</button>
+         </div>
+     
         <canvas id="myChart" style="width:100%;max-width:700px">
     
         </canvas>
